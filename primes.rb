@@ -1,12 +1,16 @@
 require 'prime'
-primes = [1, 2]
-first_number = 2
-x = true
+def prime_numbers(number_of_primes)
+  primes = [1, 2]
+  first_number = 2
+  while(primes.length < number_of_primes)
+    first_number += 1
+    next if first_number % 10 == 7
+    primes.push(first_number) if first_number.prime?
+  end
 
-while x
-  first_number += 1
-  break if first_number % 10 == 7
-  primes.push(first_number) if first_number.prime?
+  print primes
+  puts nil
 end
-print primes
-puts nil
+
+prime_numbers(5)
+prime_numbers(10)
