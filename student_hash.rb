@@ -29,6 +29,10 @@ class StudentHash
       'D'
     end
   end
+
+  def calculate_percentages
+    @@students.map{ |student| student[:percentage] = "#{student[:marks]/100.00*100}%" }
+  end
   
   private
 
@@ -45,3 +49,5 @@ student_hash.add_student(roll_no: 6, name: "Test Newest", marks: 82)
 puts student_hash.pass?(roll_no: 1)
 puts student_hash.grade(roll_no: 6)
 puts student_hash.grade(roll_no: 5)
+student_hash.calculate_percentages
+student_hash.list_students
